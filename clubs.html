@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Informasi Sepakbola">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informasi Sepak Bola</title>
+    <link rel="shortcut icon" href="/assets/img/Football Logo 512px.webp">
+    <link rel="apple-touch-icon" href="/assets/img/Football Logo 512px.webp">
+    <link rel="stylesheet" href="css/materialize.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="preconnect" href="https://crests.football-data.org">
+    <link rel="preconnect" href="https://api.football-data.org">
+    <meta name="theme-color" content="#311B92">
+</head>
+<body>
+    <!-- Navigasi -->
+    <nav class="deep-purple darken-4" role="navigation">
+        <div class="nav-wrapper container">
+            <a href="/" class="brand-logo" id="logo-container">Informasi Sepak Bola</a>
+            <a href="#" class="sidenav-trigger" data-target="nav-mobile">☰</a>
+
+            <ul class="topnav right hide-on-med-and-down">
+                <li><a class="waves-effect" href="index.html">Home</a></li>
+                <li><a class="waves-effect" href="myfavorite.html">Tim Favorit</a></li>
+            </ul>
+            <ul class="sidenav" id="nav-mobile">
+                <li><a class="waves-effect" href="index.html">Home</a></li>
+                <li><a class="waves-effect" href="myfavorite.html">Tim Favorit</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!-- Akhir Navigasi -->
+
+    <div class="container">
+        <h1 class="center">Daftar Klub</h1>
+        <div class="center-align" id="preload"></div>
+        <div class="row" id="daftar-tim">
+            
+        </div>
+    </div>
+
+    <script src="js/materialize.min.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/nav.js"></script>
+    <script src="js/sw.js"></script>
+    <script>
+        // Request API untuk pertama kali
+        document.addEventListener("DOMContentLoaded", function () {
+            cariLiga();
+        });
+
+        // Image handler
+        const images = document.querySelectorAll('img')
+        images.forEach((img) => {
+            img.addEventListener('error', () => {
+                img.src = 'assets/img/Default Logo.webp';
+            });
+        });
+    </script>
+</body>
+</html>
